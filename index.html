@@ -10,150 +10,485 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        .header {
+            background-color: #388e3c; /* 緑色に変更 */
+        }
+        .header .logo a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .header .logo a:hover {
+            color: #81c784; /* ホバー時の色 */
+        }
+        .header nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .header nav ul li {
+            margin-left: 20px; /* メニュー項目間のスペース */
+        }
+        .header nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600; /* フォントを少し太く */
+            transition: color 0.3s ease; /* 滑らかな色変化 */
+        }
+        .header nav ul li a:hover {
+            color: #81c784; /* ホバー時の色 */
+        }
+
+        .main-visual {
+            background-image: linear-gradient(to bottom, #66bb6a, #388e3c); /* グラデーション */
+            color: #ffffff;
+            text-align: center;
+            padding: 120px 20px; /* パディングを大きく */
+        }
+        .main-visual h1 {
+            font-size: 2.5rem; /* タイトルを大きく */
+            font-weight: 700; /* 太字 */
+            margin-bottom: 20px;
+            line-height: 1.4; /* 行間を調整 */
+        }
+        .main-visual p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.7; /* 行間を調整 */
+            max-width: 800px; /* 最大幅を設定 */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .main-visual .cta-button {
+            background-color: #fdd835; /* 黄色 */
+            color: #1b5e20; /* 濃い緑 */
+            padding: 15px 30px;
+            border-radius: 30px; /* 丸みを大きく */
+            font-size: 1.2rem;
+            font-weight: 600; /* 太字 */
+            text-decoration: none;
+            transition: background-color 0.3s ease; /* 滑らかな色変化 */
+        }
+        .main-visual .cta-button:hover {
+            background-color: #fbc02d; /* ホバー時の色を少し濃く */
+        }
+
+        .service-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .service-section h2 {
+            font-size: 2rem;
+            font-weight: 700; /* 太字 */
+            color: #388e3c; /* 緑色 */
+            margin-bottom: 60px;
+        }
+        .service-section .service-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* 1カラム */
+            gap: 30px;
+            max-width: 1200px; /* 最大幅を設定 */
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .service-section .service-grid {
+                grid-template-columns: repeat(3, 1fr); /* 3カラム */
+            }
+        }
+        .service-section .service-card {
+            background-color: #ffffff;
+            border-radius: 10px; /* 角丸 */
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 滑らかな変化 */
+            text-align: center;
+        }
+        .service-section .service-card:hover {
+            transform: translateY(-10px); /* 少し持ち上げる */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* 影を大きく */
+        }
+        .service-section .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600; /* 太字 */
+            color: #388e3c; /* 緑色 */
+            margin-bottom: 20px;
+        }
+        .service-section .service-card p {
+            font-size: 1rem;
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .service-section .service-card img {
+            border-radius: 10px;
+            margin-bottom: 20px;
+            max-width: 100%; /* 画像がコンテナの幅を超えないように */
+            height: auto;
+        }
+
+        .case-section {
+            background-color: #f8f8f8; /* 薄い灰色 */
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 80px;
+        }
+        .case-section h2 {
+            font-size: 2rem;
+            font-weight: 700; /* 太字 */
+            color: #388e3c; /* 緑色 */
+            margin-bottom: 60px;
+        }
+        .case-section .case-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* 1カラム */
+            gap: 30px;
+            max-width: 1200px; /* 最大幅を設定 */
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) {
+            .case-section .case-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2カラム */
+            }
+        }
+        .case-section .case-card {
+            background-color: #ffffff;
+            border-radius: 10px; /* 角丸 */
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 滑らかな変化 */
+            text-align: left;
+        }
+        .case-section .case-card:hover {
+            transform: translateY(-10px); /* 少し持ち上げる */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* 影を大きく */
+        }
+        .case-section .case-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600; /* 太字 */
+            color: #388e3c; /* 緑色 */
+            margin-bottom: 20px;
+        }
+        .case-section .case-card p {
+            font-size: 1rem;
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .case-section .case-card ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            color: #555555;
+        }
+        .case-section .case-card ul li {
+            margin-bottom: 10px;
+        }
+        .case-section .more-cases-button {
+            margin-top: 30px;
+            background-color: #fdd835; /* 黄色 */
+            color: #1b5e20; /* 濃い緑 */
+            padding: 15px 30px;
+            border-radius: 30px; /* 丸みを大きく */
+            font-size: 1.2rem;
+            font-weight: 600; /* 太字 */
+            text-decoration: none;
+            transition: background-color 0.3s ease; /* 滑らかな色変化 */
+            display: inline-block;
+        }
+        .case-section .more-cases-button:hover {
+            background-color: #fbc02d; /* ホバー時の色を少し濃く */
+        }
+
+        .flow-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .flow-section h2 {
+            font-size: 2rem;
+            font-weight: 700; /* 太字 */
+            color: #388e3c; /* 緑色 */
+            margin-bottom: 60px;
+        }
+        .flow-section ol {
+            list-style-type: decimal; /* 番号付きリスト */
+            padding-left: 0;
+            margin: 0 auto;
+            max-width: 800px; /* 最大幅を設定 */
+            text-align: left;
+        }
+        .flow-section ol li {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 滑らかな変化 */
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .flow-section ol li:hover {
+            transform: translateY(-5px); /* 少し持ち上げる */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* 影を大きく */
+        }
+        .flow-section ol li span {
+            font-weight: 600;
+            color: #388e3c; /* 緑色 */
+        }
+
+        .contact-section {
+            background-color: #f8f8f8; /* 薄い灰色 */
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-top: 80px;
+        }
+        .contact-section h2 {
+            font-size: 2rem;
+            font-weight: 700; /* 太字 */
+            color: #388e3c; /* 緑色 */
+            margin-bottom: 60px;
+        }
+        .contact-section p {
+            font-size: 1.1rem;
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            max-width: 600px; /* 最大幅を設定 */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact-section form {
+            margin: 0 auto;
+            max-width: 400px; /* フォームの最大幅 */
+            text-align: left;
+        }
+        .contact-section form .input-group {
+            margin-bottom: 20px;
+        }
+        .contact-section form input[type="text"],
+        .contact-section form input[type="email"],
+        .contact-section form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #cccccc; /* 薄い灰色 */
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease; /* 滑らかな変化 */
+            outline: none;
+        }
+        .contact-section form input[type="text"]:focus,
+        .contact-section form input[type="email"]:focus,
+        .contact-section form textarea:focus {
+            border-color: #388e3c; /* フォーカス時の色 */
+            box-shadow: 0 0 5px rgba(56, 142, 60, 0.3); /* フォーカス時の影 */
+        }
+        .contact-section form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        .contact-section form button[type="submit"] {
+            background-color: #fdd835; /* 黄色 */
+            color: #1b5e20; /* 濃い緑 */
+            padding: 15px 30px;
+            border-radius: 30px; /* 丸みを大きく */
+            font-size: 1.2rem;
+            font-weight: 600; /* 太字 */
+            text-decoration: none;
+            transition: background-color 0.3s ease; /* 滑らかな色変化 */
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+        .contact-section form button[type="submit"]:hover {
+            background-color: #fbc02d; /* ホバー時の色を少し濃く */
+        }
+
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 80px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .header nav ul {
+                flex-direction: column;
+            }
+            .header nav ul li {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            .main-visual h1 {
+                font-size: 2rem; /* スマホでは小さく */
+            }
+            .main-visual p {
+                font-size: 1rem; /* スマホでは小さく */
+            }
+            .service-section h2,
+            .case-section h2,
+            .flow-section h2,
+            .contact-section h2 {
+                font-size: 1.75rem; /* スマホでは小さく */
+            }
+            .service-section .service-card,
+            .case-section .case-card,
+            .flow-section ol li {
+                padding: 20px; /* スマホではパディングを小さく */
+            }
+            .contact-section form {
+                max-width: 100%; /* スマホではフォームの幅を100%に */
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
-    <header class="bg-green-600 text-white py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md">
-        <div class="logo text-xl font-bold ml-4">
-            <a href="#" class="hover:text-green-300 transition duration-300">
+    <header class="header shadow-md rounded-md">
+        <div class="logo ml-4">
+            <a href="#">
                 <img src="https://placehold.co/150x40/FFFFFF/000000?text=Agri+M%26A&font=Montserrat" alt="農業M&A支援サービス" class="h-8" />
             </a>
         </div>
         <nav class="mr-4">
-            <ul class="flex space-x-4">
-                <li><a href="#service" class="hover:text-green-300 transition duration-300 text-sm font-semibold">サービス内容</a></li>
-                <li><a href="#case" class="hover:text-green-300 transition duration-300 text-sm font-semibold">事例紹介</a></li>
-                <li><a href="#flow" class="hover:text-green-300 transition duration-300 text-sm font-semibold">M&Aの流れ</a></li>
-                <li><a href="#contact" class="hover:text-green-300 transition duration-300 text-sm font-semibold">お問い合わせ</a></li>
+            <ul>
+                <li><a href="#service">サービス内容</a></li>
+                <li><a href="#case">事例紹介</a></li>
+                <li><a href="#flow">M&Aの流れ</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="bg-gradient-to-br from-green-400 to-green-600 text-white text-center py-20 px-4 rounded-md">
+    <section class="main-visual rounded-md">
         <div class="max-w-3xl mx-auto">
-            <h1 class="text-3xl font-bold mb-4">農業・農家の事業承継を<br>M&Aでサポートします</h1>
-            <p class="text-lg mb-8">
+            <h1>農業・農家の事業承継を<br>M&Aでサポートします</h1>
+            <p>
                 後継者不足や経営課題を抱える農業・農家の皆様へ。<br>
                 専門家が最適なM&A戦略をご提案し、未来への架け橋となります。
             </p>
-            <a href="#contact" class="bg-yellow-500 hover:bg-yellow-600 text-green-700 font-semibold py-3 px-6 rounded-full transition duration-300 text-lg">
-                無料相談はこちら
-            </a>
+            <a href="#contact" class="cta-button">無料相談はこちら</a>
         </div>
     </section>
 
-    <section id="service" class="py-16 px-4 text-center rounded-md">
+    <section id="service" class="service-section rounded-md">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl font-bold mb-8 text-green-700">サービス内容</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-4 text-green-600">M&A</h3>
-                    <p class="text-gray-700 mb-4">
+            <h2>サービス内容</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>M&A</h3>
+                    <p>
                         企業の合併や買収をサポートし、事業の成長・拡大、再編をお手伝いします。
                     </p>
-                    <img src="https://placehold.co/300x200/EEE/333?text=M%26A&font=Montserrat" alt="M&A" class="rounded-md mx-auto mb-4">
+                    <img src="https://placehold.co/300x200/EEE/333?text=M%26A&font=Montserrat" alt="M&A">
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-4 text-green-600">事業承継</h3>
-                    <p class="text-gray-700 mb-4">
+                <div class="service-card">
+                    <h3>事業承継</h3>
+                    <p>
                         後継者へのスムーズな事業承継をサポートし、未来への発展をお手伝いします。
                     </p>
-                     <img src="https://placehold.co/300x200/EEE/333?text=%E4%BA%8B%E6%A5%AD%E6%89%BF%E7%B6%99&font=Montserrat" alt="事業承継" class="rounded-md mx-auto mb-4">
+                     <img src="https://placehold.co/300x200/EEE/333?text=%E4%BA%8B%E6%A5%AD%E6%89%BF%E7%B6%99&font=Montserrat" alt="事業承継">
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
-                    <h3 class="text-xl font-semibold mb-4 text-green-600">廃業サポート</h3>
-                    <p class="text-gray-700 mb-4">
+                <div class="service-card">
+                    <h3>廃業サポート</h3>
+                    <p>
                         円滑な廃業手続きをサポートし、お客様の負担を軽減します。
                     </p>
-                    <img src="https://placehold.co/300x200/EEE/333?text=%E廃業サポート&font=Montserrat" alt="廃業サポート" class="rounded-md mx-auto mb-4">
+                    <img src="https://placehold.co/300x200/EEE/333?text=%E廃業サポート&font=Montserrat" alt="廃業サポート">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="case" class="bg-green-100 py-16 px-4 text-center rounded-md">
+    <section id="case" class="case-section rounded-md">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl font-bold mb-8 text-green-700">事例紹介</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 text-left">
-                    <h3 class="text-xl font-semibold mb-4 text-green-600">事例1：後継者不足の果樹園</h3>
-                    <p class="text-gray-700 mb-4">
+            <h2>事例紹介</h2>
+            <div class="case-grid">
+                <div class="case-card">
+                    <h3>事例1：後継者不足の果樹園</h3>
+                    <p>
                         高齢のご夫婦が営む果樹園。後継者不足のため、事業の継続が困難に。<br>
                         当社のM&A支援により、若い世代の経営者に事業を承継し、果樹園は新たなスタートを切りました。
                     </p>
-                    <ul class="list-disc list-inside text-gray-600">
+                    <ul>
                         <li>課題：後継者不足、高齢化</li>
                         <li>解決：M&Aによる事業承継</li>
                         <li>成果：雇用の維持、事業の継続</li>
                     </ul>
                 </div>
-                <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300 text-left">
-                    <h3 class="text-xl font-semibold mb-4 text-green-600">事例2：規模拡大を目指す農家</h3>
-                    <p class="text-gray-700 mb-4">
+                <div class="case-card">
+                    <h3>事例2：規模拡大を目指す農家</h3>
+                    <p>
                         規模拡大を目指していた中規模農家。資金調達と販路拡大のため、同業の農家とのM&Aを決断。<br>
                         当社の支援により、シナジー効果の高いM&Aを実現し、事業規模を拡大しました。
                     </p>
-                    <ul class="list-disc list-inside text-gray-600">
+                    <ul>
                         <li>課題：資金調達、販路拡大</li>
                         <li>解決：M&Aによる事業拡大</li>
                         <li>成果：事業規模の拡大、収益性の向上</li>
                     </ul>
                 </div>
             </div>
-             <a href="#contact" class="mt-8 bg-yellow-500 hover:bg-yellow-600 text-green-700 font-semibold py-3 px-6 rounded-full transition duration-300 text-lg inline-block">
-                他の事例を見る
-            </a>
+             <a href="#contact" class="more-cases-button">他の事例を見る</a>
         </div>
     </section>
 
-    <section id="flow" class="py-16 px-4 text-center rounded-md">
+    <section id="flow" class="flow-section rounded-md">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl font-bold mb-8 text-green-700">M&Aの流れ</h2>
-            <ol class="list-decimal list-inside space-y-4 text-left ml-auto mr-auto max-w-3xl">
-                <li class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300">
-                    <span class="font-semibold text-green-600">ご相談</span><br>
+            <h2>M&Aの流れ</h2>
+            <ol>
+                <li>
+                    <span>1. ご相談</span><br>
                     お客様の状況やニーズを丁寧にヒアリングします。
                 </li>
-                <li class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300">
-                    <span class="font-semibold text-green-600">M&A戦略の立案</span><br>
+                <li>
+                    <span>2. M&A戦略の立案</span><br>
                     最適なM&A戦略をオーダーメイドで立案します。
                 </li>
-                <li class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300">
-                    <span class="font-semibold text-green-600">マッチング</span><br>
+                <li>
+                    <span>3. マッチング</span><br>
                     最適なマッチング先を選定し、ご紹介します。
                 </li>
-                 <li class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300">
-                    <span class="font-semibold text-green-600">条件交渉</span><br>
+                <li>
+                    <span>4. 条件交渉</span><br>
                     条件面の調整をサポートします。
                 </li>
-                <li class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300">
-                    <span class="font-semibold text-green-600">契約締結</span><br>
+                <li>
+                    <span>5. 契約締結</span><br>
                     契約内容の最終確認を行い、締結します。
                 </li>
-                <li class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition duration-300">
-                    <span class="font-semibold text-green-600">クロージング</span><br>
+                <li>
+                    <span>6. クロージング</span><br>
                     最終手続きを行い、M&A完了となります。
                 </li>
             </ol>
         </div>
     </section>
 
-    <section id="contact" class="bg-green-100 py-16 px-4 text-center rounded-md">
+    <section id="contact" class="contact-section rounded-md">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl font-bold mb-8 text-green-700">お問い合わせ</h2>
-            <p class="text-lg text-gray-700 mb-8">
+            <h2>お問い合わせ</h2>
+            <p>
                 まずはお気軽にご相談ください。<br>
                 専門家が親身に対応いたします。
             </p>
             <div class="w-full max-w-md mx-auto">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfohIW9e-OKuQeM86AC7R-ioMLr1jDj-u3chyURn7Tq2uZR4A/viewform?embedded=true" width="640" height="1273" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfohIW9e-OKuQeM86AC7R-ioMLr1jDj-u3chyURn7Tq2uZR4A/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="border:none;">読み込み中…</iframe>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-white py-6 text-center rounded-md">
+    <footer class="rounded-md">
         <div class="max-w-6xl mx-auto">
-            <p class="text-sm">
+            <p>
                 © 2023 農業・農家向けM&A支援サービス. All rights reserved.
             </p>
         </div>
