@@ -210,7 +210,7 @@
         .case-section .case-card ul li {
             margin-bottom: 0.5rem;
         }
-       
+        
 
         .flow-section {
             padding: 4rem 1rem;
@@ -378,6 +378,46 @@
                 height: 700px;
             }
         }
+
+        /* フローティングボタンのスタイル */
+        .floating-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fdd835;
+            color: #1b5e20;
+            padding: 0.75rem 1.5rem;
+            border-radius: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            opacity: 0; /* 初期状態を透明にする */
+            transform: translateY(20px); /* 初期位置を下方にずらす */
+            transition: opacity 0.3s ease, transform 0.3s ease; /* アニメーション効果 */
+        }
+
+        .floating-button:hover {
+            background-color: #fbc02d;
+            transform: translateY(-0.25rem);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .floating-button {
+                bottom: 10px;
+                right: 10px;
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+            }
+        }
+
+        .show-floating-button {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -454,7 +494,7 @@
                         <li>解決：M&Aによる事業承継</li>
                         <li>成果：雇用の維持、事業の継続</li>
                     </ul>
-                        <img src="32103937_s.jpg" alt="果樹園">
+                    <img src="32103937_s.jpg" alt="果樹園">
                 </div>
                 <div class="case-card">
                     <h3>事例2：規模拡大を目指す農家</h3>
@@ -467,7 +507,7 @@
                         <li>解決：M&Aによる事業拡大</li>
                         <li>成果：事業規模の拡大、収益性の向上</li>
                     </ul>
-                        <img src="32034741_s.jpg" alt="中規模農家">
+                    <img src="32034741_s.jpg" alt="中規模農家">
                 </div>
             </div>
         </div>
@@ -526,9 +566,12 @@
         </div>
     </footer>
 
+    <a href="#contact" class="floating-button">無料相談はこちら</a>
+
     <script>
         const menuIcon = document.getElementById('menu-icon');
         const navLinks = document.getElementById('nav-links');
+        const floatingButton = document.querySelector('.floating-button');
 
         menuIcon.addEventListener('click', () => {
             navLinks.classList.toggle('active');
@@ -544,6 +587,19 @@
                     navLinks.classList.remove('active');
                 }
             });
+        });
+
+        // スクロールイベントを監視して、ボタンを表示/非表示にする
+        window.addEventListener('scroll', () => {
+            // ページの最上部からのスクロール量を取得
+            const scrollY = window.scrollY;
+
+            // スクロール量が100pxを超えたら、ボタンを表示する
+            if (scrollY > 100) {
+                floatingButton.classList.add('show-floating-button');
+            } else {
+                floatingButton.classList.remove('show-floating-button');
+            }
         });
     </script>
 </body>
