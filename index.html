@@ -9,344 +9,373 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            line-height: 1.7;
         }
         .header {
-            background-color: #388e3c; /* 緑色に変更 */
+            background-color: #388e3c;
+            color: #ffffff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-radius: 0.375rem;
         }
         .header .logo a {
             color: #ffffff;
             text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 600;
         }
         .header .logo a:hover {
-            color: #81c784; /* ホバー時の色 */
+            color: #81c784;
+        }
+        .header nav {
+            display: flex;
+            align-items: center;
         }
         .header nav ul {
             display: flex;
             list-style: none;
             margin: 0;
             padding: 0;
+            flex-direction: row;
         }
         .header nav ul li {
-            margin-left: 20px; /* メニュー項目間のスペース */
+            margin-left: 1.5rem;
         }
         .header nav ul li a {
             color: #ffffff;
             text-decoration: none;
             font-size: 1rem;
-            font-weight: 600; /* フォントを少し太く */
-            transition: color 0.3s ease; /* 滑らかな色変化 */
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
         .header nav ul li a:hover {
-            color: #81c784; /* ホバー時の色 */
+            color: #81c784;
+        }
+        .header .menu-icon {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #ffffff;
         }
 
         .main-visual {
-            background-image: linear-gradient(to bottom, #66bb6a, #388e3c); /* グラデーション */
+            background-image: linear-gradient(to bottom, #66bb6a, #388e3c);
             color: #ffffff;
             text-align: center;
-            padding: 120px 20px; /* パディングを大きく */
+            padding: 8rem 1rem;
+            border-radius: 0.375rem;
         }
         .main-visual h1 {
-            font-size: 2.5rem; /* タイトルを大きく */
-            font-weight: 700; /* 太字 */
-            margin-bottom: 20px;
-            line-height: 1.4; /* 行間を調整 */
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
         }
         .main-visual p {
             font-size: 1.1rem;
-            margin-bottom: 30px;
-            line-height: 1.7; /* 行間を調整 */
-            max-width: 800px; /* 最大幅を設定 */
+            margin-bottom: 2rem;
+            max-width: 100%;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
         .main-visual .cta-button {
-            background-color: #fdd835; /* 黄色 */
-            color: #1b5e20; /* 濃い緑 */
-            padding: 15px 30px;
-            border-radius: 30px; /* 丸みを大きく */
-            font-size: 1.2rem;
-            font-weight: 600; /* 太字 */
+            background-color: #fdd835;
+            color: #1b5e20;
+            padding: 0.75rem 1.5rem;
+            border-radius: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
             text-decoration: none;
-            transition: background-color 0.3s ease; /* 滑らかな色変化 */
+            transition: background-color 0.3s ease;
+            display: inline-block;
         }
         .main-visual .cta-button:hover {
-            background-color: #fbc02d; /* ホバー時の色を少し濃く */
+            background-color: #fbc02d;
         }
 
         .service-section {
-            padding: 80px 20px;
+            padding: 4rem 1rem;
             text-align: center;
         }
         .service-section h2 {
             font-size: 2rem;
-            font-weight: 700; /* 太字 */
-            color: #388e3c; /* 緑色 */
-            margin-bottom: 60px;
+            font-weight: 700;
+            color: #388e3c;
+            margin-bottom: 3rem;
         }
         .service-section .service-grid {
             display: grid;
-            grid-template-columns: 1fr; /* 1カラム */
-            gap: 30px;
-            max-width: 1200px; /* 最大幅を設定 */
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 100%;
             margin: 0 auto;
         }
         @media (min-width: 768px) {
             .service-section .service-grid {
-                grid-template-columns: repeat(3, 1fr); /* 3カラム */
+                grid-template-columns: repeat(3, 1fr);
             }
         }
         .service-section .service-card {
             background-color: #ffffff;
-            border-radius: 10px; /* 角丸 */
-            padding: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影 */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 滑らかな変化 */
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
         }
         .service-section .service-card:hover {
-            transform: translateY(-10px); /* 少し持ち上げる */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* 影を大きく */
+            transform: translateY(-0.5rem);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         }
         .service-section .service-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600; /* 太字 */
-            color: #388e3c; /* 緑色 */
-            margin-bottom: 20px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #388e3c;
+            margin-bottom: 1.25rem;
         }
         .service-section .service-card p {
             font-size: 1rem;
             color: #555555;
-            line-height: 1.7;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             text-align: left;
         }
         .service-section .service-card img {
-            border-radius: 10px;
-            margin-bottom: 20px;
-            max-width: 100%; /* 画像がコンテナの幅を超えないように */
+            border-radius: 0.5rem;
+            margin-bottom: 1.25rem;
+            max-width: 100%;
             height: auto;
         }
 
         .case-section {
-            background-color: #f8f8f8; /* 薄い灰色 */
-            padding: 80px 20px;
+            background-color: #f8f8f8;
+            padding: 4rem 1rem;
             text-align: center;
-            border-radius: 10px;
-            margin-top: 80px;
+            border-radius: 0.5rem;
+            margin-top: 4rem;
         }
         .case-section h2 {
             font-size: 2rem;
-            font-weight: 700; /* 太字 */
-            color: #388e3c; /* 緑色 */
-            margin-bottom: 60px;
+            font-weight: 700;
+            color: #388e3c;
+            margin-bottom: 3rem;
         }
         .case-section .case-grid {
             display: grid;
-            grid-template-columns: 1fr; /* 1カラム */
-            gap: 30px;
-            max-width: 1200px; /* 最大幅を設定 */
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 100%;
             margin: 0 auto;
         }
         @media (min-width: 768px) {
             .case-section .case-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2カラム */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         .case-section .case-card {
             background-color: #ffffff;
-            border-radius: 10px; /* 角丸 */
-            padding: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影 */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 滑らかな変化 */
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: left;
         }
         .case-section .case-card:hover {
-            transform: translateY(-10px); /* 少し持ち上げる */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* 影を大きく */
+            transform: translateY(-0.5rem);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         }
         .case-section .case-card h3 {
             font-size: 1.2rem;
-            font-weight: 600; /* 太字 */
-            color: #388e3c; /* 緑色 */
-            margin-bottom: 20px;
+            font-weight: 600;
+            color: #388e3c;
+            margin-bottom: 1.25rem;
         }
         .case-section .case-card p {
             font-size: 1rem;
             color: #555555;
-            line-height: 1.7;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
         }
         .case-section .case-card ul {
             list-style: disc;
-            padding-left: 20px;
-            margin-bottom: 20px;
+            padding-left: 1.25rem;
+            margin-bottom: 1.25rem;
             color: #555555;
         }
         .case-section .case-card ul li {
-            margin-bottom: 10px;
+            margin-bottom: 0.5rem;
         }
-        .case-section .more-cases-button {
-            margin-top: 30px;
-            background-color: #fdd835; /* 黄色 */
-            color: #1b5e20; /* 濃い緑 */
-            padding: 15px 30px;
-            border-radius: 30px; /* 丸みを大きく */
-            font-size: 1.2rem;
-            font-weight: 600; /* 太字 */
-            text-decoration: none;
-            transition: background-color 0.3s ease; /* 滑らかな色変化 */
-            display: inline-block;
-        }
-        .case-section .more-cases-button:hover {
-            background-color: #fbc02d; /* ホバー時の色を少し濃く */
-        }
+       
 
         .flow-section {
-            padding: 80px 20px;
+            padding: 4rem 1rem;
             text-align: center;
         }
         .flow-section h2 {
             font-size: 2rem;
-            font-weight: 700; /* 太字 */
-            color: #388e3c; /* 緑色 */
-            margin-bottom: 60px;
+            font-weight: 700;
+            color: #388e3c;
+            margin-bottom: 3rem;
         }
-        .flow-section ol {
-            list-style-type: decimal; /* 番号付きリスト */
-            padding-left: 0;
-            margin: 0 auto;
-            max-width: 800px; /* 最大幅を設定 */
-            text-align: left;
+        .flow-section .flow-steps {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2rem;
         }
-        .flow-section ol li {
+        .flow-section .flow-step {
             background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 影 */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 滑らかな変化 */
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             font-size: 1rem;
             line-height: 1.7;
+            width: 100%;
+            max-width: 600px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
         }
-        .flow-section ol li:hover {
-            transform: translateY(-5px); /* 少し持ち上げる */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* 影を大きく */
+        .flow-section .flow-step:hover {
+            transform: translateY(-0.25rem);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
         }
-        .flow-section ol li span {
+        .flow-section .flow-step span {
             font-weight: 600;
-            color: #388e3c; /* 緑色 */
+            color: #388e3c;
+            margin-right: 1rem;
+            min-width: 2rem;
+            text-align: center;
         }
 
         .contact-section {
-            background-color: #f8f8f8; /* 薄い灰色 */
-            padding: 80px 20px;
+            background-color: #f8f8f8;
+            padding: 4rem 1rem;
             text-align: center;
-            border-radius: 10px;
-            margin-top: 80px;
+            border-radius: 0.5rem;
+            margin-top: 4rem;
         }
         .contact-section h2 {
             font-size: 2rem;
-            font-weight: 700; /* 太字 */
-            color: #388e3c; /* 緑色 */
-            margin-bottom: 60px;
+            font-weight: 700;
+            color: #388e3c;
+            margin-bottom: 3rem;
         }
         .contact-section p {
             font-size: 1.1rem;
             color: #555555;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            max-width: 600px; /* 最大幅を設定 */
+            margin-bottom: 2rem;
+            max-width: 100%;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
-        .contact-section form {
+        .contact-section .google-form-container {
+            width: 100%;
+            max-width: 600px;
             margin: 0 auto;
-            max-width: 400px; /* フォームの最大幅 */
-            text-align: left;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        .contact-section form .input-group {
-            margin-bottom: 20px;
-        }
-        .contact-section form input[type="text"],
-        .contact-section form input[type="email"],
-        .contact-section form textarea {
+        .contact-section iframe {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #cccccc; /* 薄い灰色 */
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease; /* 滑らかな変化 */
-            outline: none;
-        }
-        .contact-section form input[type="text"]:focus,
-        .contact-section form input[type="email"]:focus,
-        .contact-section form textarea:focus {
-            border-color: #388e3c; /* フォーカス時の色 */
-            box-shadow: 0 0 5px rgba(56, 142, 60, 0.3); /* フォーカス時の影 */
-        }
-        .contact-section form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        .contact-section form button[type="submit"] {
-            background-color: #fdd835; /* 黄色 */
-            color: #1b5e20; /* 濃い緑 */
-            padding: 15px 30px;
-            border-radius: 30px; /* 丸みを大きく */
-            font-size: 1.2rem;
-            font-weight: 600; /* 太字 */
-            text-decoration: none;
-            transition: background-color 0.3s ease; /* 滑らかな色変化 */
-            width: 100%;
+            height: 500px;
             border: none;
-            cursor: pointer;
-        }
-        .contact-section form button[type="submit"]:hover {
-            background-color: #fbc02d; /* ホバー時の色を少し濃く */
         }
 
         footer {
             background-color: #333333;
             color: #ffffff;
-            padding: 20px;
+            padding: 1.5rem 1rem;
             text-align: center;
-            margin-top: 80px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            margin-top: 4rem;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
         }
         footer p {
-            font-size: 0.9rem;
+            font-size: 0.875rem;
         }
 
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
             .header nav ul {
                 flex-direction: column;
+                align-items: flex-start;
             }
             .header nav ul li {
                 margin-left: 0;
-                margin-top: 10px;
+                margin-top: 1rem;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header .logo {
+                margin-bottom: 1rem;
+            }
+            .header nav {
+                width: 100%;
+            }
+            .header .menu-icon {
+                display: block;
+            }
+            #nav-links {
+                display: none;
+                width: 100%;
+            }
+            #nav-links.active {
+                display: block;
             }
             .main-visual h1 {
-                font-size: 2rem; /* スマホでは小さく */
+                font-size: 2rem;
             }
             .main-visual p {
-                font-size: 1rem; /* スマホでは小さく */
+                font-size: 1rem;
             }
             .service-section h2,
             .case-section h2,
             .flow-section h2,
             .contact-section h2 {
-                font-size: 1.75rem; /* スマホでは小さく */
+                font-size: 1.75rem;
             }
             .service-section .service-card,
             .case-section .case-card,
             .flow-section ol li {
-                padding: 20px; /* スマホではパディングを小さく */
+                padding: 1.5rem;
             }
             .contact-section form {
-                max-width: 100%; /* スマホではフォームの幅を100%に */
+                max-width: 100%;
+            }
+            .flow-section .flow-step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .flow-section .flow-step span{
+                margin-bottom: 0.5rem;
+                text-align: left;
+            }
+        }
+
+        /* Google フォームのスタイル調整 */
+        .contact-section iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .contact-section iframe {
+                height: 700px;
             }
         }
     </style>
@@ -359,7 +388,9 @@
             </a>
         </div>
         <nav class="mr-4">
-            <ul>
+            <div class="menu-icon" id="menu-icon">&#9776;</div>
+            <ul id="nav-links">
+                <li><a href="https://wakuwakudriven.com/" target="_blank" rel="noopener noreferrer">運営会社</a></li>
                 <li><a href="#service">サービス内容</a></li>
                 <li><a href="#case">事例紹介</a></li>
                 <li><a href="#flow">M&Aの流れ</a></li>
@@ -395,7 +426,7 @@
                     <p>
                         後継者へのスムーズな事業承継をサポートし、未来への発展をお手伝いします。
                     </p>
-                     <img src="https://placehold.co/300x200/EEE/333?text=%E4%BA%8B%E6%A5%AD%E6%89%BF%E7%B6%99&font=Montserrat" alt="事業承継">
+                    <img src="https://placehold.co/300x200/EEE/333?text=%E4%BA%8B%E6%A5%AD%E6%89%BF%E7%B6%99&font=Montserrat" alt="事業承継">
                 </div>
                 <div class="service-card">
                     <h3>廃業サポート</h3>
@@ -437,39 +468,38 @@
                     </ul>
                 </div>
             </div>
-             <a href="#contact" class="more-cases-button">他の事例を見る</a>
         </div>
     </section>
 
     <section id="flow" class="flow-section rounded-md">
         <div class="max-w-6xl mx-auto">
             <h2>M&Aの流れ</h2>
-            <ol>
-                <li>
-                    <span>1. ご相談</span><br>
-                    お客様の状況やニーズを丁寧にヒアリングします。
-                </li>
-                <li>
-                    <span>2. M&A戦略の立案</span><br>
-                    最適なM&A戦略をオーダーメイドで立案します。
-                </li>
-                <li>
-                    <span>3. マッチング</span><br>
-                    最適なマッチング先を選定し、ご紹介します。
-                </li>
-                <li>
-                    <span>4. 条件交渉</span><br>
-                    条件面の調整をサポートします。
-                </li>
-                <li>
-                    <span>5. 契約締結</span><br>
-                    契約内容の最終確認を行い、締結します。
-                </li>
-                <li>
-                    <span>6. クロージング</span><br>
-                    最終手続きを行い、M&A完了となります。
-                </li>
-            </ol>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <span><img src="https://placehold.co/32x32/81C784/FFFFFF?text=1&font=Inter" alt="1"></span>
+                    ご相談<br>お客様の状況やニーズを丁寧にヒアリングします。
+                </div>
+                <div class="flow-step">
+                    <span><img src="https://placehold.co/32x32/81C784/FFFFFF?text=2&font=Inter" alt="2"></span>
+                    M&A戦略の立案<br>最適なM&A戦略をオーダーメイドで立案します。
+                </div>
+                <div class="flow-step">
+                    <span><img src="https://placehold.co/32x32/81C784/FFFFFF?text=3&font=Inter" alt="3"></span>
+                    マッチング<br>最適なマッチング先を選定し、ご紹介します。
+                </div>
+                <div class="flow-step">
+                    <span><img src="https://placehold.co/32x32/81C784/FFFFFF?text=4&font=Inter" alt="4"></span>
+                    条件交渉<br>条件面の調整をサポートします。
+                </div>
+                <div class="flow-step">
+                    <span><img src="https://placehold.co/32x32/81C784/FFFFFF?text=5&font=Inter" alt="5"></span>
+                    契約締結<br>契約内容の最終確認を行い、締結します。
+                </div>
+                <div class="flow-step">
+                    <span><img src="https://placehold.co/32x32/81C784/FFFFFF?text=6&font=Inter" alt="6"></span>
+                    クロージング<br>最終手続きを行い、M&A完了となります。
+                </div>
+            </div>
         </div>
     </section>
 
@@ -480,8 +510,8 @@
                 まずはお気軽にご相談ください。<br>
                 専門家が親身に対応いたします。
             </p>
-            <div class="w-full max-w-md mx-auto">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfohIW9e-OKuQeM86AC7R-ioMLr1jDj-u3chyURn7Tq2uZR4A/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="border:none;">読み込み中…</iframe>
+            <div class="w-full max-w-md mx-auto google-form-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfohIW9e-OKuQeM86AC7R-ioMLr1jDj-u3chyURn7Tq2uZR4A/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" style="border:none;">読み込んでいます…</iframe>
             </div>
         </div>
     </section>
@@ -489,18 +519,28 @@
     <footer class="rounded-md">
         <div class="max-w-6xl mx-auto">
             <p>
-                © 2023 農業・農家向けM&A支援サービス. All rights reserved.
+                © 2025 株式会社WAKU. All rights reserved.
             </p>
         </div>
     </footer>
 
     <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const navLinks = document.getElementById('nav-links');
+
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
             });
         });
     </script>
