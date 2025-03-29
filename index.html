@@ -327,6 +327,9 @@
             }
             .header .menu-icon {
                 display: block;
+                order: 2; /* メニューアイコンを右側に配置 */
+                margin-left: auto; /* メニューアイコンを右端に寄せる */
+                margin-right: 0;
             }
             #nav-links {
                 display: none;
@@ -394,17 +397,15 @@
             transition: background-color 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
-            opacity: 0; /* 初期状態を透明にする */
-            transform: translateY(20px); /* 初期位置を下方にずらす */
-            transition: opacity 0.3s ease, transform 0.3s ease; /* アニメーション効果 */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
-
         .floating-button:hover {
             background-color: #fbc02d;
             transform: translateY(-0.25rem);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
-
         @media (max-width: 768px) {
             .floating-button {
                 bottom: 10px;
@@ -413,10 +414,49 @@
                 font-size: 1rem;
             }
         }
-
         .show-floating-button {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* ページトップボタンのスタイル */
+        .page-top-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px; /* 左下に配置 */
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明の黒 */
+            color: #ffffff;
+            width: 30px; /* サイズを小さくする */
+            height: 30px;
+            border-radius: 50%; /* 丸くする */
+            font-size: 1rem;
+            text-decoration: none;
+            text-align: center;
+            line-height: 30px; /* 垂直方向中央揃え */
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+            opacity: 0; /* 最初は非表示 */
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            cursor: pointer; /* カーソルをポインターにする */
+        }
+        .page-top-button:hover {
+            background-color: rgba(0, 0, 0, 0.7); /* ホバーで少し濃くする */
+            transform: translateY(-0.25rem);
+        }
+        .show-page-top-button {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: 768px) {
+            .page-top-button {
+                bottom: 10px;
+                left: 10px;
+                width: 25px;
+                height: 25px;
+                font-size: 0.8rem;
+                line-height: 25px;
+            }
         }
     </style>
 </head>
@@ -567,11 +607,13 @@
     </footer>
 
     <a href="#contact" class="floating-button">無料相談はこちら</a>
+    <a href="#" class="page-top-button">↑</a>
 
     <script>
         const menuIcon = document.getElementById('menu-icon');
         const navLinks = document.getElementById('nav-links');
         const floatingButton = document.querySelector('.floating-button');
+        const pageTopButton = document.querySelector('.page-top-button');
 
         menuIcon.addEventListener('click', () => {
             navLinks.classList.toggle('active');
@@ -589,17 +631,24 @@
             });
         });
 
-        // スクロールイベントを監視して、ボタンを表示/非表示にする
         window.addEventListener('scroll', () => {
-            // ページの最上部からのスクロール量を取得
             const scrollY = window.scrollY;
 
-            // スクロール量が100pxを超えたら、ボタンを表示する
             if (scrollY > 100) {
                 floatingButton.classList.add('show-floating-button');
+                pageTopButton.classList.add('show-page-top-button');
             } else {
                 floatingButton.classList.remove('show-floating-button');
+                pageTopButton.classList.remove('show-page-top-button');
             }
+        });
+
+        // ページトップボタンをクリックしたときの処理
+        pageTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
