@@ -370,9 +370,18 @@
             /* スマホ表示時のヘッダーのスタイル調整 */
             .header {
                 padding: 0.5rem 1rem; /* 上下のpaddingを小さくする */
+                flex-direction: row; /* ロゴとメニューアイコンを横並びにする */
+                align-items: center; /* 垂直方向に中央揃えにする */
+            }
+            .header .logo {
+                margin-bottom: 0; /* ロゴの下マージンを削除 */
+                margin-right: auto; /* ロゴを左端に寄せる */
             }
             .header .logo a {
                 font-size: 1rem; /* ロゴのフォントサイズを小さくする */
+            }
+            .header nav {
+                width: auto; /* ナビの幅を自動調整 */
             }
             .header nav ul li a {
                 font-size: 0.9rem; /* ナビゲーションリンクのフォントサイズを小さくする */
@@ -380,6 +389,41 @@
             .header .menu-icon {
                 font-size: 1.25rem; /* メニューアイコンのサイズを小さくする */
             }
+            #nav-links {
+                position: fixed; /* 絶対配置に変更 */
+                top: 100%; /* 初期位置をヘッダーの下にする */
+                left: 0;
+                width: 100%;
+                background-color: #388e3c; /* ヘッダーと同じ背景色 */
+                flex-direction: column; /* 縦方向に並べる */
+                align-items: flex-start;
+                padding: 0;
+                margin: 0;
+                transition: transform 0.3s ease-in-out; /* アニメーション追加 */
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+            #nav-links.active {
+                transform: translateY(-100%); /* メニュー表示時に上方向に移動 */
+            }
+            #nav-links li {
+                margin: 0;
+                padding: 0.75rem 1rem;
+                border-bottom: 1px solid #81c784; /* 区切り線 */
+                width: 100%;
+                text-align: left;
+            }
+            #nav-links li:last-child {
+                border-bottom: none;
+            }
+            #nav-links li a {
+                color: #ffffff;
+                font-size: 1rem;
+                font-weight: 600;
+                display: block; /* リンクをブロック要素にする */
+                width: 100%;
+            }
+
         }
 
         /* Google フォームのスタイル調整 */
