@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agri M&A_農業・農家向けM&A支援サービス</title>
+    <title>全国農業承継推進センター（NCASP）</title>
     <meta name="description" content="農業・農家向けのM&A支援サービス。事業承継、規模拡大、廃業など、農業経営の様々な課題に対応します。専門家による無料相談も実施中。">
     <meta name="keywords" content="農業, 農家, M&A, 事業承継, 廃業, 経営支援, 無料相談">
     <meta name="author" content="株式会社WAKU">
-    <meta property="og:title" content="agriM&A_農業・農家向けM&A支援サービス">
+    <meta property="og:title" content="全国農業承継推進センター（NCASP）">
     <meta property="og:description" content="農業・農家向けのM&A支援サービス。事業承継、規模拡大、廃業など、農業経営の様々な課題に対応します。専門家による無料相談も実施中。">
     <meta property="og:url" content="https://example.com">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://example.com/ogp.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@wakuwakudriven">
-    <meta name="twitter:title" content="agriM&A_農業・農家向けM&A支援サービス">
+    <meta name="twitter:title" content="全国農業承継推進センター（NCASP）">
     <meta name="twitter:description" content="農業・農家向けのM&A支援サービス。事業承継、規模拡大、廃業など、農業経営の様々な課題に対応します。専門家による無料相談も実施中。">
     <meta name="twitter:image" content="https://example.com/twitter-card.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -463,7 +463,7 @@
 
             #nav-links {
                 position: fixed;
-                top: 100%;
+                top: 0;
                 left: 0;
                 width: 100%;
                 background-color: #388e3c;
@@ -474,10 +474,11 @@
                 transition: transform 0.3s ease-in-out;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 z-index: 1000;
+                transform: translateY(-100%);
             }
 
             #nav-links.active {
-                transform: translateY(-100%);
+                transform: translateY(0);
             }
 
             #nav-links li {
@@ -498,6 +499,24 @@
                 font-weight: 600;
                 display: block;
                 width: 100%;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .main-visual h1 {
+                font-size: 1.75rem;
+            }
+
+            .main-visual p {
+                font-size: 0.9rem;
+            }
+
+            .header .logo a{
+                font-size: 0.9rem;
+            }
+
+            .header nav ul li a{
+                font-size: 0.7rem;
             }
         }
 
@@ -601,7 +620,7 @@
     <header class="header shadow-md rounded-md">
         <div class="logo ml-4">
             <a href="#">
-                <img src="https://placehold.co/150x40/FFFFFF/000000?text=Agri+M%26A&font=Montserrat" alt="農業M&A支援サービス" class="h-8" />
+                <img src="https://placehold.co/150x40/FFFFFF/000000?text=NCASP&font=Montserrat" alt="農業M&A支援サービス" class="h-8" />
             </a>
         </div>
         <nav class="mr-4">
